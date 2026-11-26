@@ -1,207 +1,923 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Jaseem & Simran – Wedding Invitation</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500&family=Playfair+Display:wght@400;600&family=Amiri&display=swap" rel="stylesheet">
-<style>
-:root{--wine:#5e152f;--wine2:#3d0c1f;--gold:#d4b483;--gold2:#f1dfb8;--blush:#f7d9de;--ivory:#fff8ee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;background:var(--wine2);color:var(--ivory);font-family:Montserrat,sans-serif;overflow:hidden}
-.pages{height:100%;overflow:hidden;scroll-snap-type:y mandatory;scroll-behavior:smooth}
-.pages.open{overflow-y:auto}
-section{min-height:100%;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px 20px;position:relative;overflow:hidden}
-.ivory{background:linear-gradient(160deg,var(--blush),var(--ivory));color:var(--wine)}
-.dark{background:radial-gradient(circle at 50% 20%,#7a1f40,var(--wine) 60%);color:var(--gold2)}
-.frame{border:1.5px solid var(--gold);outline:1px solid var(--gold);outline-offset:-8px;border-radius:14px;padding:26px 18px;width:100%;max-width:420px;background:rgba(255,248,238,.55);backdrop-filter:blur(2px)}
-.dark .frame{background:rgba(0,0,0,.18)}
-.ar{font-family:Amiri,serif;font-size:1.9rem;color:#b8893f;line-height:1.5}
-.dark .ar{color:var(--gold)}
-.script{font-family:'Great Vibes',cursive;font-size:2.6rem;line-height:1.15}
-h2{font-family:'Playfair Display',serif;font-weight:600;letter-spacing:.04em;font-size:1.35rem;margin-bottom:10px}
-p,.small{font-size:.82rem;line-height:1.6;letter-spacing:.03em}
-.gold{color:#b8893f}.dark .gold{color:var(--gold)}
-.div{margin:8px auto;color:var(--gold);letter-spacing:.4em}
-.fade{opacity:0;transform:translateY(14px);transition:opacity 1s,transform 1s}
-.in .fade{opacity:1;transform:none}.in .fade:nth-child(2){transition-delay:.3s}.in .fade:nth-child(3){transition-delay:.6s}
-.btn{display:inline-block;margin:6px 4px;padding:11px 18px;border-radius:30px;border:1px solid var(--gold);background:linear-gradient(135deg,#e6cc9b,#b8893f);color:var(--wine2);font:500 .78rem Montserrat;text-decoration:none;cursor:pointer;letter-spacing:.05em}
-.btn.o{background:transparent;color:inherit}
-/* petals */
-.petal{position:fixed;top:-30px;width:14px;height:18px;border-radius:80% 0 80% 0;background:radial-gradient(circle at 30% 30%,#e8788f,#a52247);opacity:.85;pointer-events:none;z-index:50;animation:fall linear infinite}
-@keyframes fall{to{transform:translate3d(var(--dx),110vh,0) rotate(540deg)}}
-/* book */
-#p1{background:radial-gradient(circle at 50% 40%,var(--ivory),var(--blush))}
-.roses{position:absolute;font-size:2.6rem;filter:drop-shadow(0 6px 6px rgba(94,21,47,.35));animation:bob 4s ease-in-out infinite}
-@keyframes bob{50%{transform:translateY(-8px) rotate(6deg)}}
-.book{perspective:1200px;width:240px;height:330px;cursor:pointer;margin:20px 0;z-index:2}
-.bk{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 1.4s;transform:rotateY(-12deg)}
-.cover,.inner{position:absolute;inset:0;border-radius:4px 14px 14px 4px;backface-visibility:hidden}
-.cover{background:linear-gradient(135deg,#7a1f40,var(--wine2));border:2px solid var(--gold);box-shadow:0 18px 30px rgba(61,12,31,.5),inset 0 0 0 8px var(--wine),inset 0 0 0 9px var(--gold);transform-origin:left;transition:transform 1.4s;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gold);z-index:2}
-.cover .moon{font-size:3rem;margin:6px}
-.inner{background:var(--ivory);z-index:1;display:flex;align-items:center;justify-content:center;color:var(--wine);font-family:'Great Vibes';font-size:2rem}
-.book.opened .cover{transform:rotateY(-170deg)}
-.hint{font-size:.8rem;letter-spacing:.2em;color:var(--wine);animation:pulse 2s infinite;z-index:2}
-@keyframes pulse{50%{opacity:.4}}
-/* scroll */
-.scrollbox{width:100%;max-width:340px;position:relative}
-.rod{height:16px;border-radius:8px;background:linear-gradient(#f1dfb8,#9b6f2c);box-shadow:0 3px 6px rgba(0,0,0,.4)}
-.paper{max-height:0;overflow:hidden;transition:max-height 1.4s ease;background:var(--ivory);color:var(--wine);border-left:2px solid var(--gold);border-right:2px solid var(--gold)}
-.paper.show{max-height:520px}
-.paper>div{padding:22px 16px}
-.tassel{position:absolute;right:14px;top:8px;width:36px;touch-action:none;cursor:grab;z-index:3;transition:transform .3s}
-.tassel i{display:block;width:2px;height:34px;background:var(--gold);margin:0 auto}
-.tassel b{display:block;width:26px;height:44px;margin:0 auto;border-radius:6px 6px 14px 14px;background:linear-gradient(#e6cc9b,#a52247)}
-.finger{position:absolute;right:2px;top:92px;font-size:1.6rem;animation:tug 1.2s infinite;z-index:3}
-@keyframes tug{50%{transform:translateY(14px)}}
-.cd{display:flex;gap:8px;justify-content:center;margin:12px 0}
-.cd div{min-width:58px;padding:8px 4px;border:1px solid var(--gold);border-radius:10px;background:var(--wine);color:var(--gold2);font-family:'Playfair Display';font-size:1.4rem}
-.cd small{display:block;font:.55rem Montserrat;letter-spacing:.15em;color:var(--gold)}
-/* carousel */
-.car{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;width:100%;gap:0;scrollbar-width:none;perspective:900px}
-.car::-webkit-scrollbar{display:none}
-.card{flex:0 0 100%;scroll-snap-align:center;display:flex;justify-content:center;padding:10px 24px}
-.card .frame{background:rgba(255,248,238,.9);box-shadow:0 14px 28px rgba(61,12,31,.35)}
-.ill{font-size:2.6rem;letter-spacing:.2em;margin-bottom:6px}
-.row{margin:9px 0;font-size:.82rem}.row b{display:block;font-size:.6rem;letter-spacing:.2em;color:#b8893f}
-.dots{display:flex;gap:8px;justify-content:center;margin-top:14px}
-.dots i{width:8px;height:8px;border-radius:50%;background:var(--gold);opacity:.35;transition:.3s}.dots i.on{opacity:1;transform:scale(1.4)}
-.map{display:block;margin:12px 0;border-radius:12px;overflow:hidden;border:1px solid var(--gold)}
-.sp{position:absolute;color:var(--gold);animation:tw 2.4s infinite;font-size:.9rem}
-@keyframes tw{50%{opacity:.1;transform:scale(.4)}}
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--wine);color:var(--gold2);padding:10px 18px;border-radius:20px;font-size:.8rem;opacity:0;transition:.3s;z-index:99;pointer-events:none}.toast.on{opacity:1}
-@media(min-width:700px){.frame{max-width:460px}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important}}
-</style></head><body>
-<div class="pages" id="pages">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Jaseem & Simran – Wedding Invitation</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500&family=Playfair+Display:wght@400;600&family=Amiri&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --wine: #5e152f;
+        --wine2: #3d0c1f;
+        --gold: #d4b483;
+        --gold2: #f1dfb8;
+        --blush: #f7d9de;
+        --ivory: #fff8ee;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        -webkit-tap-highlight-color: transparent;
+      }
+      html,
+      body {
+        height: 100%;
+        background: var(--wine2);
+        color: var(--ivory);
+        font-family: Montserrat, sans-serif;
+        overflow: hidden;
+      }
+      .pages {
+        height: 100%;
+        overflow: hidden;
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+      }
+      .pages.open {
+        overflow-y: auto;
+      }
+      section {
+        min-height: 100%;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 28px 20px;
+        position: relative;
+        overflow: hidden;
+      }
+      .ivory {
+        background: linear-gradient(160deg, var(--blush), var(--ivory));
+        color: var(--wine);
+      }
+      .dark {
+        background: radial-gradient(
+          circle at 50% 20%,
+          #7a1f40,
+          var(--wine) 60%
+        );
+        color: var(--gold2);
+      }
+      .frame {
+        border: 1.5px solid var(--gold);
+        outline: 1px solid var(--gold);
+        outline-offset: -8px;
+        border-radius: 14px;
+        padding: 26px 18px;
+        width: 100%;
+        max-width: 420px;
+        background: rgba(255, 248, 238, 0.55);
+        backdrop-filter: blur(2px);
+      }
+      .dark .frame {
+        background: rgba(0, 0, 0, 0.18);
+      }
+      .ar {
+        font-family: Amiri, serif;
+        font-size: 1.9rem;
+        color: #b8893f;
+        line-height: 1.5;
+      }
+      .dark .ar {
+        color: var(--gold);
+      }
+      .script {
+        font-family: "Great Vibes", cursive;
+        font-size: 2.6rem;
+        line-height: 1.15;
+      }
+      h2 {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        font-size: 1.35rem;
+        margin-bottom: 10px;
+      }
+      p,
+      .small {
+        font-size: 0.82rem;
+        line-height: 1.6;
+        letter-spacing: 0.03em;
+      }
+      .gold {
+        color: #b8893f;
+      }
+      .dark .gold {
+        color: var(--gold);
+      }
+      .div {
+        margin: 8px auto;
+        color: var(--gold);
+        letter-spacing: 0.4em;
+      }
+      .fade {
+        opacity: 0;
+        transform: translateY(14px);
+        transition:
+          opacity 1s,
+          transform 1s;
+      }
+      .in .fade {
+        opacity: 1;
+        transform: none;
+      }
+      .in .fade:nth-child(2) {
+        transition-delay: 0.3s;
+      }
+      .in .fade:nth-child(3) {
+        transition-delay: 0.6s;
+      }
+      .btn {
+        display: inline-block;
+        margin: 6px 4px;
+        padding: 11px 18px;
+        border-radius: 30px;
+        border: 1px solid var(--gold);
+        background: linear-gradient(135deg, #e6cc9b, #b8893f);
+        color: var(--wine2);
+        font: 500 0.78rem Montserrat;
+        text-decoration: none;
+        cursor: pointer;
+        letter-spacing: 0.05em;
+      }
+      .btn.o {
+        background: transparent;
+        color: inherit;
+      }
+      /* petals */
+      .petal {
+        position: fixed;
+        top: -30px;
+        width: 14px;
+        height: 18px;
+        border-radius: 80% 0 80% 0;
+        background: radial-gradient(circle at 30% 30%, #e8788f, #a52247);
+        opacity: 0.85;
+        pointer-events: none;
+        z-index: 50;
+        animation: fall linear infinite;
+      }
+      @keyframes fall {
+        to {
+          transform: translate3d(var(--dx), 110vh, 0) rotate(540deg);
+        }
+      }
+      /* book */
+      #p1 {
+        background: radial-gradient(
+          circle at 50% 40%,
+          var(--ivory),
+          var(--blush)
+        );
+      }
+      .roses {
+        position: absolute;
+        font-size: 2.6rem;
+        filter: drop-shadow(0 6px 6px rgba(94, 21, 47, 0.35));
+        animation: bob 4s ease-in-out infinite;
+      }
+      @keyframes bob {
+        50% {
+          transform: translateY(-8px) rotate(6deg);
+        }
+      }
+      .book {
+        perspective: 1200px;
+        width: 240px;
+        height: 330px;
+        cursor: pointer;
+        margin: 20px 0;
+        z-index: 2;
+      }
+      .bk {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 1.4s;
+        transform: rotateY(-12deg);
+      }
+      .cover,
+      .inner {
+        position: absolute;
+        inset: 0;
+        border-radius: 4px 14px 14px 4px;
+        backface-visibility: hidden;
+      }
+      .cover {
+        background: linear-gradient(135deg, #7a1f40, var(--wine2));
+        border: 2px solid var(--gold);
+        box-shadow:
+          0 18px 30px rgba(61, 12, 31, 0.5),
+          inset 0 0 0 8px var(--wine),
+          inset 0 0 0 9px var(--gold);
+        transform-origin: left;
+        transition: transform 1.4s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        z-index: 2;
+      }
+      .cover .moon {
+        font-size: 3rem;
+        margin: 6px;
+      }
+      .inner {
+        background: var(--ivory);
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--wine);
+        font-family: "Great Vibes";
+        font-size: 2rem;
+      }
+      .book.opened .cover {
+        transform: rotateY(-170deg);
+      }
+      .hint {
+        font-size: 0.8rem;
+        letter-spacing: 0.2em;
+        color: var(--wine);
+        animation: pulse 2s infinite;
+        z-index: 2;
+      }
+      @keyframes pulse {
+        50% {
+          opacity: 0.4;
+        }
+      }
+      /* scroll */
+      .scrollbox {
+        width: 100%;
+        max-width: 340px;
+        position: relative;
+      }
+      .rod {
+        height: 16px;
+        border-radius: 8px;
+        background: linear-gradient(#f1dfb8, #9b6f2c);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+      }
+      .paper {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 1.4s ease;
+        background: var(--ivory);
+        color: var(--wine);
+        border-left: 2px solid var(--gold);
+        border-right: 2px solid var(--gold);
+      }
+      .paper.show {
+        max-height: 520px;
+      }
+      .paper > div {
+        padding: 22px 16px;
+      }
+      .tassel {
+        position: absolute;
+        right: 14px;
+        top: 8px;
+        width: 36px;
+        touch-action: none;
+        cursor: grab;
+        z-index: 3;
+        transition: transform 0.3s;
+      }
+      .tassel i {
+        display: block;
+        width: 2px;
+        height: 34px;
+        background: var(--gold);
+        margin: 0 auto;
+      }
+      .tassel b {
+        display: block;
+        width: 26px;
+        height: 44px;
+        margin: 0 auto;
+        border-radius: 6px 6px 14px 14px;
+        background: linear-gradient(#e6cc9b, #a52247);
+      }
+      .finger {
+        position: absolute;
+        right: 2px;
+        top: 92px;
+        font-size: 1.6rem;
+        animation: tug 1.2s infinite;
+        z-index: 3;
+      }
+      @keyframes tug {
+        50% {
+          transform: translateY(14px);
+        }
+      }
+      .cd {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin: 12px 0;
+      }
+      .cd div {
+        min-width: 58px;
+        padding: 8px 4px;
+        border: 1px solid var(--gold);
+        border-radius: 10px;
+        background: var(--wine);
+        color: var(--gold2);
+        font-family: "Playfair Display";
+        font-size: 1.4rem;
+      }
+      .cd small {
+        display: block;
+        font: 0.55rem Montserrat;
+        letter-spacing: 0.15em;
+        color: var(--gold);
+      }
+      /* carousel */
+      .car {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        width: 100%;
+        gap: 0;
+        scrollbar-width: none;
+        perspective: 900px;
+      }
+      .car::-webkit-scrollbar {
+        display: none;
+      }
+      .card {
+        flex: 0 0 100%;
+        scroll-snap-align: center;
+        display: flex;
+        justify-content: center;
+        padding: 10px 24px;
+      }
+      .card .frame {
+        background: rgba(255, 248, 238, 0.9);
+        box-shadow: 0 14px 28px rgba(61, 12, 31, 0.35);
+      }
+      .ill {
+        font-size: 2.6rem;
+        letter-spacing: 0.2em;
+        margin-bottom: 6px;
+      }
+      .row {
+        margin: 9px 0;
+        font-size: 0.82rem;
+      }
+      .row b {
+        display: block;
+        font-size: 0.6rem;
+        letter-spacing: 0.2em;
+        color: #b8893f;
+      }
+      .dots {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 14px;
+      }
+      .dots i {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--gold);
+        opacity: 0.35;
+        transition: 0.3s;
+      }
+      .dots i.on {
+        opacity: 1;
+        transform: scale(1.4);
+      }
+      .map {
+        display: block;
+        margin: 12px 0;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--gold);
+      }
+      .sp {
+        position: absolute;
+        color: var(--gold);
+        animation: tw 2.4s infinite;
+        font-size: 0.9rem;
+      }
+      @keyframes tw {
+        50% {
+          opacity: 0.1;
+          transform: scale(0.4);
+        }
+      }
+      .toast {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--wine);
+        color: var(--gold2);
+        padding: 10px 18px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        opacity: 0;
+        transition: 0.3s;
+        z-index: 99;
+        pointer-events: none;
+      }
+      .toast.on {
+        opacity: 1;
+      }
+      @media (min-width: 700px) {
+        .frame {
+          max-width: 460px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pages" id="pages">
+      <section id="p1">
+        <span class="roses" style="left: 6%; top: 8%">🌹</span
+        ><span class="roses" style="right: 7%; top: 12%; animation-delay: 1s"
+          >🌹</span
+        >
+        <span class="roses" style="left: 9%; bottom: 10%; animation-delay: 2s"
+          >🌷</span
+        ><span
+          class="roses"
+          style="right: 8%; bottom: 8%; animation-delay: 0.5s"
+          >🌹</span
+        >
+        <div class="book" id="book">
+          <div class="bk">
+            <div class="cover">
+              <div class="ar" style="font-size: 1.35rem; color: var(--gold)">
+                بسم الله الرحمن الرحيم
+              </div>
+              <div class="moon">☪</div>
+              <div class="script" style="font-size: 2.1rem">Wedding</div>
+              <div class="small" style="letter-spacing: 0.3em">INVITATION</div>
+              <div class="div">✦ ❀ ✦</div>
+            </div>
+            <div class="inner">Bismillah</div>
+          </div>
+        </div>
+        <div class="hint">TAP THE BOOK TO OPEN</div>
+      </section>
 
-<section id="p1">
- <span class="roses" style="left:6%;top:8%">🌹</span><span class="roses" style="right:7%;top:12%;animation-delay:1s">🌹</span>
- <span class="roses" style="left:9%;bottom:10%;animation-delay:2s">🌷</span><span class="roses" style="right:8%;bottom:8%;animation-delay:.5s">🌹</span>
- <div class="book" id="book"><div class="bk">
-  <div class="cover"><div class="ar" style="font-size:1.35rem;color:var(--gold)">بسم الله الرحمن الرحيم</div><div class="moon">☪</div><div class="script" style="font-size:2.1rem">Wedding</div><div class="small" style="letter-spacing:.3em">INVITATION</div><div class="div">✦ ❀ ✦</div></div>
-  <div class="inner">Bismillah</div></div></div>
- <div class="hint">TAP THE BOOK TO OPEN</div>
-</section>
+      <section id="p2" class="ivory">
+        <div class="frame">
+          <div class="ar fade">بسم الله الرحمن الرحيم</div>
+          <p class="fade">
+            <i>In the name of Allah, the Most Beneficent &amp; Merciful</i>
+          </p>
+          <p style="margin: 10px 0" class="fade">
+            The undersigned request the pleasure of your company on the
+            auspicious occasion of the marriage ceremony of my son
+          </p>
+          <div class="script gold" id="gn" style="min-height: 2.9rem"></div>
+          <p>S/o Syed Mahfooz Alam</p>
+          <div class="script" style="font-size: 2rem; margin: 4px 0">
+            ~ With ~
+          </div>
+          <div class="script gold" id="bn" style="min-height: 2.9rem"></div>
+          <p>
+            D/o Jb. Feroz Ahmad Sb.<br />(At.-Shivrajpur, P.S.-Nautan, W.
+            Champaran)
+          </p>
+          <div class="div">✦ ✦ ✦</div>
+          <p class="fade">
+            <i>Insha-Allah, as per programme you are cordially invited</i>
+          </p>
+        </div>
+      </section>
 
-<section id="p2" class="ivory">
- <div class="frame">
-  <div class="ar fade">بسم الله الرحمن الرحيم</div>
-  <p class="fade"><i>In the name of Allah, the Most Beneficent &amp; Merciful</i></p>
-  <p style="margin:10px 0" class="fade">The undersigned request the pleasure of your company on the auspicious occasion of the marriage ceremony of my son</p>
-  <div class="script gold" id="gn" style="min-height:2.9rem"></div>
-  <p>S/o Syed Mahfooz Alam</p>
-  <div class="script" style="font-size:2rem;margin:4px 0">~ With ~</div>
-  <div class="script gold" id="bn" style="min-height:2.9rem"></div>
-  <p>D/o Jb. Feroz Ahmad Sb.<br>(At.-Shivrajpur, P.S.-Nautan, W. Champaran)</p>
-  <div class="div">✦ ✦ ✦</div>
-  <p class="fade"><i>Insha-Allah, as per programme you are cordially invited</i></p>
- </div>
-</section>
+      <section id="p3" class="ivory">
+        <h2>SAVE THE DATE</h2>
+        <p class="small" id="tip" style="margin-bottom: 12px">
+          Pull the tassel to unfurl
+        </p>
+        <div class="scrollbox">
+          <div class="rod"></div>
+          <div class="tassel" id="tassel"><i></i><b></b></div>
+          <div class="finger" id="finger">👆</div>
+          <div class="paper" id="paper">
+            <div>
+              <div class="div">❖ ❀ ❖</div>
+              <div class="script gold" style="font-size: 2.2rem">Sunday</div>
+              <h2 style="font-size: 1.5rem; margin: 4px 0">
+                6th December 2026
+              </h2>
+              <p>Departure of Barat · <b>5:00 P.M.</b></p>
+              <div class="cd" id="cd"></div>
+              <a
+                class="btn"
+                id="cal"
+                target="_blank"
+                rel="noopener"
+                href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Jaseem+%26+Simran&dates=20261206T170000/20261206T210000&ctz=Asia/Kolkata&location=Hotel+The+Crystal+Palace,+Mansha+Tola,+Bettiah,+Bihar&details=Departure+of+Barat+5:00+PM.+Insha-Allah."
+                >📅 Add to Calendar</a
+              >
+            </div>
+          </div>
+          <div class="rod"></div>
+        </div>
+        <span class="sp" style="left: 12%; top: 15%">✦</span
+        ><span class="sp" style="right: 14%; top: 30%; animation-delay: 0.8s"
+          >✧</span
+        ><span class="sp" style="left: 20%; bottom: 12%; animation-delay: 1.4s"
+          >✦</span
+        >
+      </section>
 
-<section id="p3" class="ivory">
- <h2>SAVE THE DATE</h2>
- <p class="small" id="tip" style="margin-bottom:12px">Pull the tassel to unfurl</p>
- <div class="scrollbox">
-  <div class="rod"></div>
-  <div class="tassel" id="tassel"><i></i><b></b></div><div class="finger" id="finger">👆</div>
-  <div class="paper" id="paper"><div>
-   <div class="div">❖ ❀ ❖</div>
-   <div class="script gold" style="font-size:2.2rem">Sunday</div>
-   <h2 style="font-size:1.5rem;margin:4px 0">6th December 2026</h2>
-   <p>Departure of Barat · <b>5:00 P.M.</b></p>
-   <div class="cd" id="cd"></div>
-   <a class="btn" id="cal" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Jaseem+%26+Simran&dates=20261206T170000/20261206T210000&ctz=Asia/Kolkata&location=Hotel+The+Crystal+Palace,+Mansha+Tola,+Bettiah,+Bihar&details=Departure+of+Barat+5:00+PM.+Insha-Allah.">📅 Add to Calendar</a>
-  </div></div>
-  <div class="rod"></div>
- </div>
- <span class="sp" style="left:12%;top:15%">✦</span><span class="sp" style="right:14%;top:30%;animation-delay:.8s">✧</span><span class="sp" style="left:20%;bottom:12%;animation-delay:1.4s">✦</span>
-</section>
+      <section id="p4" class="dark" style="padding-left: 0; padding-right: 0">
+        <h2>WEDDING FUNCTIONS</h2>
+        <p class="small" style="margin-bottom: 10px">Swipe →</p>
+        <div class="car" id="car1">
+          <div class="card">
+            <div class="frame ivory">
+              <div class="ill">🏮☪🏮</div>
+              <h2>Milad Sharif</h2>
+              <div class="row"><b>DATE</b>Saturday, 5th December 2026</div>
+              <div class="row"><b>TIME</b>6:00 P.M.</div>
+              <div class="row">
+                <b>VENUE</b>Residence, At.-Sonwal Barkurwa, P.S.-Paharpur, E.
+                Champaran
+              </div>
+              <div class="row"><b>DRESS CODE</b>Traditional Ethnic Wear</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="frame ivory">
+              <div class="ill">🌹🕌🌹</div>
+              <h2>Departure of Barat<br />(Nikah Ceremony)</h2>
+              <div class="row"><b>DATE</b>Sunday, 6th December 2026</div>
+              <div class="row"><b>TIME</b>5:00 P.M.</div>
+              <div class="row">
+                <b>VENUE</b>Hotel The Crystal Palace, Mansha Tola, Bettiah
+              </div>
+              <div class="row">
+                <b>DRESS CODE</b>Formal / Sherwani / Festive Ethnic
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="frame ivory">
+              <div class="ill">🌸🏮🌸</div>
+              <h2>Return of Barat</h2>
+              <div class="row"><b>DATE</b>Monday, 7th December 2026</div>
+              <div class="row"><b>TIME</b>6:00 A.M.</div>
+              <div class="row">
+                <b>VENUE</b>Residence, At.-Sonwal Barkurwa, P.S.-Paharpur
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="frame ivory">
+              <div class="ill">✨🌹✨</div>
+              <h2>Dawat-e-Walima<br />(Grand Reception)</h2>
+              <div class="row"><b>DATE</b>Tuesday, 8th December 2026</div>
+              <div class="row"><b>TIME</b>7:00 P.M.</div>
+              <div class="row">
+                <b>VENUE</b>Residence, At.-Sonwal Barkurwa, P.S.-Paharpur, E.
+                Champaran
+              </div>
+              <div class="row"><b>DRESS CODE</b>Formal / Festive Attire</div>
+            </div>
+          </div>
+        </div>
+        <div class="dots" id="d1"></div>
+      </section>
 
-<section id="p4" class="dark" style="padding-left:0;padding-right:0">
- <h2>WEDDING FUNCTIONS</h2><p class="small" style="margin-bottom:10px">Swipe →</p>
- <div class="car" id="car1">
-  <div class="card"><div class="frame ivory"><div class="ill">🏮☪🏮</div><h2>Milad Sharif</h2><div class="row"><b>DATE</b>Saturday, 5th December 2026</div><div class="row"><b>TIME</b>6:00 P.M.</div><div class="row"><b>VENUE</b>Residence, At.-Sonwal Barkurwa, P.S.-Paharpur, E. Champaran</div><div class="row"><b>DRESS CODE</b>Traditional Ethnic Wear</div></div></div>
-  <div class="card"><div class="frame ivory"><div class="ill">🌹🕌🌹</div><h2>Departure of Barat<br>(Nikah Ceremony)</h2><div class="row"><b>DATE</b>Sunday, 6th December 2026</div><div class="row"><b>TIME</b>5:00 P.M.</div><div class="row"><b>VENUE</b>Hotel The Crystal Palace, Mansha Tola, Bettiah</div><div class="row"><b>DRESS CODE</b>Formal / Sherwani / Festive Ethnic</div></div></div>
-  <div class="card"><div class="frame ivory"><div class="ill">🌸🏮🌸</div><h2>Return of Barat</h2><div class="row"><b>DATE</b>Monday, 7th December 2026</div><div class="row"><b>TIME</b>6:00 A.M.</div><div class="row"><b>VENUE</b>Residence, At.-Sonwal Barkurwa, P.S.-Paharpur</div></div></div>
-  <div class="card"><div class="frame ivory"><div class="ill">✨🌹✨</div><h2>Dawat-e-Walima<br>(Grand Reception)</h2><div class="row"><b>DATE</b>Tuesday, 8th December 2026</div><div class="row"><b>TIME</b>7:00 P.M.</div><div class="row"><b>VENUE</b>Residence, At.-Sonwal Barkurwa, P.S.-Paharpur, E. Champaran</div><div class="row"><b>DRESS CODE</b>Formal / Festive Attire</div></div></div>
- </div><div class="dots" id="d1"></div>
-</section>
+      <section id="p5" class="ivory" style="padding-left: 0; padding-right: 0">
+        <h2>MEMORABLE MOMENTS</h2>
+        <p class="small" style="margin-bottom: 10px">
+          Blessings &amp; duas · swipe →
+        </p>
+        <div class="car" id="car2">
+          <div class="card">
+            <div class="frame">
+              <div class="ill">🌹</div>
+              <div class="script">
+                aapke aane se rounak badhegi<br />aapki dua se barkat milegi…
+              </div>
+              <p style="margin-top: 10px">
+                Your presence will light up our celebration.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="frame">
+              <div class="ill">☪</div>
+              <div class="ar" style="font-size: 1.4rem">
+                بارك الله لكما وبارك عليكما وجمع بينكما في خير
+              </div>
+              <p style="margin-top: 10px">
+                “May Allah bless you both, and unite you in goodness.”
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="frame">
+              <div class="ill">🏮</div>
+              <div class="script">Two hearts, one Nikah</div>
+              <p style="margin-top: 10px">
+                Join us with your duas as two families become one, Insha-Allah.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="dots" id="d2"></div>
+      </section>
 
-<section id="p5" class="ivory" style="padding-left:0;padding-right:0">
- <h2>MEMORABLE MOMENTS</h2><p class="small" style="margin-bottom:10px">Blessings &amp; duas · swipe →</p>
- <div class="car" id="car2">
-  <div class="card"><div class="frame"><div class="ill">🌹</div><div class="script">Aapke aane se rounak badhegi<br>aapki dua se barkat milegi…</div><p style="margin-top:10px">Your presence will light up our celebration.</p></div></div>
-  <div class="card"><div class="frame"><div class="ill">☪</div><div class="ar" style="font-size:1.4rem">بارك الله لكما وبارك عليكما وجمع بينكما في خير</div><p style="margin-top:10px">“May Allah bless you both, and unite you in goodness.”</p></div></div>
-  <div class="card"><div class="frame"><div class="ill">🏮</div><div class="script">Two hearts, one Nikah</div><p style="margin-top:10px">Join us with your duas as two families become one, Insha-Allah.</p></div></div>
- </div><div class="dots" id="d2"></div>
-</section>
+      <section id="p6" class="dark">
+        <span class="sp" style="left: 10%; top: 10%">✦</span
+        ><span class="sp" style="right: 10%; top: 18%; animation-delay: 1s"
+          >✧</span
+        ><span class="sp" style="left: 15%; bottom: 14%; animation-delay: 0.5s"
+          >✦</span
+        >
+        <div style="font-size: 2.4rem">🏮 🌹 🏮</div>
+        <div class="ar" style="margin-top: 8px">بسم الله الرحمن الرحيم</div>
+        <div class="script" style="font-size: 3rem">Dawat-e-Walima</div>
+        <p class="small">GRAND RECEPTION</p>
+        <div class="div">✦ ✦ ✦</div>
+        <h2>Tuesday, 8th December 2026</h2>
+        <p>at 7:00 P.M.</p>
+        <p style="margin-top: 14px">
+          Hosted by<br /><b>Syed Mahfooz Alam</b><br />At.-Sonwal Barkurwa,
+          P.S.-Paharpur, E. Champaran
+        </p>
+      </section>
 
-<section id="p6" class="dark">
- <span class="sp" style="left:10%;top:10%">✦</span><span class="sp" style="right:10%;top:18%;animation-delay:1s">✧</span><span class="sp" style="left:15%;bottom:14%;animation-delay:.5s">✦</span>
- <div style="font-size:2.4rem">🏮 🌹 🏮</div>
- <div class="ar" style="margin-top:8px">بسم الله الرحمن الرحيم</div>
- <div class="script" style="font-size:3rem">Dawat-e-Walima</div>
- <p class="small">GRAND RECEPTION</p><div class="div">✦ ✦ ✦</div>
- <h2>Tuesday, 8th December 2026</h2><p>at 7:00 P.M.</p>
- <p style="margin-top:14px">Hosted by<br><b>Syed Mahfooz Alam</b><br>At.-Sonwal Barkurwa, P.S.-Paharpur, E. Champaran</p>
-</section>
+      <section id="p7" class="ivory">
+        <div class="frame">
+          <h2>WEDDING LOCATION</h2>
+          <p>
+            <b>Hotel The Crystal Palace</b><br />Mansha Tola, Bettiah, Bihar
+          </p>
+          <a
+            class="map"
+            target="_blank"
+            rel="noopener"
+            href="https://maps.google.com/?q=Hotel+The+Crystal+Palace+Mansha+Tola+Bettiah"
+          >
+            <svg
+              viewBox="0 0 300 150"
+              width="100%"
+              role="img"
+              aria-label="Illustrated map"
+            >
+              <rect width="300" height="150" fill="#f3e6cf" />
+              <path
+                d="M0 100 Q90 70 170 95 T300 60"
+                stroke="#fff"
+                stroke-width="12"
+                fill="none"
+              />
+              <path d="M60 0 L90 150" stroke="#fff" stroke-width="8" />
+              <path d="M200 0 L180 150" stroke="#e6cc9b" stroke-width="6" />
+              <rect x="20" y="20" width="40" height="30" fill="#e3d2b0" />
+              <rect x="220" y="95" width="50" height="35" fill="#e3d2b0" />
+              <circle cx="130" cy="40" r="14" fill="#c9dfb8" />
+              <path
+                d="M150 45 q-16-26 0-40 q16 14 0 40z"
+                transform="translate(0 25)"
+                fill="#a52247"
+              />
+              <circle cx="150" cy="52" r="5" fill="#fff" /></svg
+          ></a>
+          <a
+            class="btn"
+            target="_blank"
+            rel="noopener"
+            href="https://maps.google.com/?q=Hotel+The+Crystal+Palace+Mansha+Tola+Bettiah"
+            >🧭 Get Directions</a
+          >
+          <button class="btn o" id="copy">📋 Copy Address</button><br />
+          <a class="btn" href="tel:9931258650">📞 Call 9931258650</a>
+          <a class="btn" href="tel:7260836850">📞 Call 7260836850</a>
+        </div>
+      </section>
 
-<section id="p7" class="ivory">
- <div class="frame">
-  <h2>WEDDING LOCATION</h2>
-  <p><b>Hotel The Crystal Palace</b><br>Mansha Tola, Bettiah, Bihar</p>
-  <a class="map" target="_blank" rel="noopener" href="https://maps.google.com/?q=Hotel+The+Crystal+Palace+Mansha+Tola+Bettiah">
-   <svg viewBox="0 0 300 150" width="100%" role="img" aria-label="Illustrated map"><rect width="300" height="150" fill="#f3e6cf"/><path d="M0 100 Q90 70 170 95 T300 60" stroke="#fff" stroke-width="12" fill="none"/><path d="M60 0 L90 150" stroke="#fff" stroke-width="8"/><path d="M200 0 L180 150" stroke="#e6cc9b" stroke-width="6"/><rect x="20" y="20" width="40" height="30" fill="#e3d2b0"/><rect x="220" y="95" width="50" height="35" fill="#e3d2b0"/><circle cx="130" cy="40" r="14" fill="#c9dfb8"/><path d="M150 45 q-16-26 0-40 q16 14 0 40z" transform="translate(0 25)" fill="#a52247"/><circle cx="150" cy="52" r="5" fill="#fff"/></svg></a>
-  <a class="btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=Hotel+The+Crystal+Palace+Mansha+Tola+Bettiah">🧭 Get Directions</a>
-  <button class="btn o" id="copy">📋 Copy Address</button><br>
-  <a class="btn" href="tel:9931258650">📞 Call 9931258650</a>
-  <a class="btn" href="tel:7260836850">📞 Call 7260836850</a>
- </div>
-</section>
-
-<section id="p8" class="dark">
- <div style="font-size:2rem">🌹 ❀ 🌹</div>
- <div class="script" style="font-size:2.4rem;margin:8px 0">Insha-Allah,</div>
- <h2>WE CAN’T WAIT TO CELEBRATE WITH YOU!</h2><div class="div">✦ ✦ ✦</div>
- <p class="small gold">R.S.V.P.</p>
- <p style="max-width:320px">Syed Mahmood Alam, Rameez Reja, Waseem Reja, Asif Reja, Yusuf Reja, Nasim Alam &amp; All Relatives &amp; Friends</p>
- <p class="small gold" style="margin-top:16px">WITH BEST COMPLIMENTS FROM</p>
- <p><b>Syed Mahfooz Alam</b><br>(At.-Sonwal Barkurwa, P.S.-Paharpur, E. Champaran)<br>&amp; all relatives and friends.</p>
- <div style="font-size:2rem;margin-top:14px">❀ 🌷 ❀</div>
-</section>
-</div>
-<div class="toast" id="toast"></div>
-<script>
-const $=id=>document.getElementById(id),pages=$('pages');
-// petals
-function petals(){for(let i=0;i<14;i++){const p=document.createElement('div');p.className='petal';p.style.cssText=`left:${Math.random()*100}vw;--dx:${(Math.random()*120-60)}px;animation-duration:${7+Math.random()*7}s;animation-delay:${-Math.random()*10}s;transform:scale(${.6+Math.random()*.8})`;document.body.appendChild(p)}}
-// book
-$('book').onclick=()=>{const b=$('book');if(b.classList.contains('opened'))return;b.classList.add('opened');petals();
- setTimeout(()=>{pages.classList.add('open');$('p2').scrollIntoView({behavior:'smooth'})},1500)};
-// reveal + typing
-let typed=false;
-function type(el,t,cb){let i=0;(function f(){el.textContent=t.slice(0,++i);if(i<t.length)setTimeout(f,90);else cb&&cb()})()}
-new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');
- if(e.target.id==='p2'&&!typed){typed=true;setTimeout(()=>type($('gn'),'Er. Md. Jaseem Reja',()=>type($('bn'),'Simran Feroz')),600)}}}),{threshold:.5,root:pages}).observe&&
- document.querySelectorAll('section').forEach(s=>{new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){s.classList.add('in');if(s.id==='p2'&&!typed){typed=true;setTimeout(()=>type($('gn'),'Er. Md. Jaseem Reja',()=>type($('bn'),'Simran Feroz')),500)}}}),{threshold:.5,root:pages}).observe(s)});
-// tassel
-const t=$('tassel');let sy=null,opened=false;
-function openScroll(){if(opened)return;opened=true;$('paper').classList.add('show');$('finger').style.display='none';$('tip').textContent='';t.style.transform='translateY(0)'}
-t.addEventListener('pointerdown',e=>{sy=e.clientY;t.setPointerCapture(e.pointerId)});
-t.addEventListener('pointermove',e=>{if(sy===null)return;const d=Math.max(0,Math.min(60,e.clientY-sy));t.style.transition='none';t.style.transform=`translateY(${d}px)`;if(d>40){sy=null;t.style.transition='';openScroll()}});
-t.addEventListener('pointerup',()=>{if(sy!==null){t.style.transition='';openScroll()}sy=null});
-$('finger').onclick=openScroll;
-// countdown
-const target=new Date('2026-12-06T17:00:00+05:30').getTime();
-function tick(){let d=Math.max(0,target-Date.now());const v=[Math.floor(d/864e5),Math.floor(d/36e5)%24,Math.floor(d/6e4)%60,Math.floor(d/1e3)%60],l=['DAYS','HRS','MINS','SECS'];
- $('cd').innerHTML=v.map((n,i)=>`<div>${String(n).padStart(2,'0')}<small>${l[i]}</small></div>`).join('')}
-tick();setInterval(tick,1000);
-// carousels + dots
-function dots(c,d){const car=$(c),box=$(d),n=car.children.length;for(let i=0;i<n;i++){const x=document.createElement('i');x.onclick=()=>car.scrollTo({left:i*car.clientWidth,behavior:'smooth'});box.appendChild(x)}
- const up=()=>{const k=Math.round(car.scrollLeft/car.clientWidth);[...box.children].forEach((x,i)=>x.classList.toggle('on',i===k))};car.addEventListener('scroll',up,{passive:true});up()}
-dots('car1','d1');dots('car2','d2');
-// copy
-function toast(m){const e=$('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),1800)}
-$('copy').onclick=async()=>{const a='Hotel The Crystal Palace, Mansha Tola, Bettiah, Bihar';
- try{await navigator.clipboard.writeText(a)}catch(e){const x=document.createElement('textarea');x.value=a;document.body.appendChild(x);x.select();try{document.execCommand('copy')}catch(_){}x.remove()}toast('Address copied')};
-</script></body></html>
+      <section id="p8" class="dark">
+        <div style="font-size: 2rem">🌹 ❀ 🌹</div>
+        <div class="script" style="font-size: 2.4rem; margin: 8px 0">
+          Insha-Allah,
+        </div>
+        <h2>WE CAN’T WAIT TO CELEBRATE WITH YOU!</h2>
+        <div class="div">✦ ✦ ✦</div>
+        <p class="small gold">R.S.V.P.</p>
+        <p style="max-width: 320px">
+          Syed Mahmood Alam, Rameez Reja, Waseem Reja, Asif Reja, Yusuf Reja,
+          Nasim Alam &amp; All Relatives &amp; Friends
+        </p>
+        <p class="small gold" style="margin-top: 16px">
+          WITH BEST COMPLIMENTS FROM
+        </p>
+        <p>
+          <b>Syed Mahfooz Alam</b><br />(At.-Sonwal Barkurwa, P.S.-Paharpur, E.
+          Champaran)<br />&amp; all relatives and friends.
+        </p>
+        <div style="font-size: 2rem; margin-top: 14px">❀ 🌷 ❀</div>
+      </section>
+    </div>
+    <div class="toast" id="toast"></div>
+    <script>
+      const $ = (id) => document.getElementById(id),
+        pages = $("pages");
+      // petals
+      function petals() {
+        for (let i = 0; i < 14; i++) {
+          const p = document.createElement("div");
+          p.className = "petal";
+          p.style.cssText = `left:${Math.random() * 100}vw;--dx:${Math.random() * 120 - 60}px;animation-duration:${7 + Math.random() * 7}s;animation-delay:${-Math.random() * 10}s;transform:scale(${0.6 + Math.random() * 0.8})`;
+          document.body.appendChild(p);
+        }
+      }
+      // book
+      $("book").onclick = () => {
+        const b = $("book");
+        if (b.classList.contains("opened")) return;
+        b.classList.add("opened");
+        petals();
+        setTimeout(() => {
+          pages.classList.add("open");
+          $("p2").scrollIntoView({ behavior: "smooth" });
+        }, 1500);
+      };
+      // reveal + typing
+      let typed = false;
+      function type(el, t, cb) {
+        let i = 0;
+        (function f() {
+          el.textContent = t.slice(0, ++i);
+          if (i < t.length) setTimeout(f, 90);
+          else cb && cb();
+        })();
+      }
+      new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              if (e.target.id === "p2" && !typed) {
+                typed = true;
+                setTimeout(
+                  () =>
+                    type($("gn"), "Er. Md. Jaseem Reja", () =>
+                      type($("bn"), "Simran Feroz"),
+                    ),
+                  600,
+                );
+              }
+            }
+          }),
+        { threshold: 0.5, root: pages },
+      ).observe &&
+        document.querySelectorAll("section").forEach((s) => {
+          new IntersectionObserver(
+            (es) =>
+              es.forEach((e) => {
+                if (e.isIntersecting) {
+                  s.classList.add("in");
+                  if (s.id === "p2" && !typed) {
+                    typed = true;
+                    setTimeout(
+                      () =>
+                        type($("gn"), "Er. Md. Jaseem Reja", () =>
+                          type($("bn"), "Simran Feroz"),
+                        ),
+                      500,
+                    );
+                  }
+                }
+              }),
+            { threshold: 0.5, root: pages },
+          ).observe(s);
+        });
+      // tassel
+      const t = $("tassel");
+      let sy = null,
+        opened = false;
+      function openScroll() {
+        if (opened) return;
+        opened = true;
+        $("paper").classList.add("show");
+        $("finger").style.display = "none";
+        $("tip").textContent = "";
+        t.style.transform = "translateY(0)";
+      }
+      t.addEventListener("pointerdown", (e) => {
+        sy = e.clientY;
+        t.setPointerCapture(e.pointerId);
+      });
+      t.addEventListener("pointermove", (e) => {
+        if (sy === null) return;
+        const d = Math.max(0, Math.min(60, e.clientY - sy));
+        t.style.transition = "none";
+        t.style.transform = `translateY(${d}px)`;
+        if (d > 40) {
+          sy = null;
+          t.style.transition = "";
+          openScroll();
+        }
+      });
+      t.addEventListener("pointerup", () => {
+        if (sy !== null) {
+          t.style.transition = "";
+          openScroll();
+        }
+        sy = null;
+      });
+      $("finger").onclick = openScroll;
+      // countdown
+      const target = new Date("2026-12-06T17:00:00+05:30").getTime();
+      function tick() {
+        let d = Math.max(0, target - Date.now());
+        const v = [
+            Math.floor(d / 864e5),
+            Math.floor(d / 36e5) % 24,
+            Math.floor(d / 6e4) % 60,
+            Math.floor(d / 1e3) % 60,
+          ],
+          l = ["DAYS", "HRS", "MINS", "SECS"];
+        $("cd").innerHTML = v
+          .map(
+            (n, i) =>
+              `<div>${String(n).padStart(2, "0")}<small>${l[i]}</small></div>`,
+          )
+          .join("");
+      }
+      tick();
+      setInterval(tick, 1000);
+      // carousels + dots
+      function dots(c, d) {
+        const car = $(c),
+          box = $(d),
+          n = car.children.length;
+        for (let i = 0; i < n; i++) {
+          const x = document.createElement("i");
+          x.onclick = () =>
+            car.scrollTo({ left: i * car.clientWidth, behavior: "smooth" });
+          box.appendChild(x);
+        }
+        const up = () => {
+          const k = Math.round(car.scrollLeft / car.clientWidth);
+          [...box.children].forEach((x, i) =>
+            x.classList.toggle("on", i === k),
+          );
+        };
+        car.addEventListener("scroll", up, { passive: true });
+        up();
+      }
+      dots("car1", "d1");
+      dots("car2", "d2");
+      // copy
+      function toast(m) {
+        const e = $("toast");
+        e.textContent = m;
+        e.classList.add("on");
+        setTimeout(() => e.classList.remove("on"), 1800);
+      }
+      $("copy").onclick = async () => {
+        const a = "Hotel The Crystal Palace, Mansha Tola, Bettiah, Bihar";
+        try {
+          await navigator.clipboard.writeText(a);
+        } catch (e) {
+          const x = document.createElement("textarea");
+          x.value = a;
+          document.body.appendChild(x);
+          x.select();
+          try {
+            document.execCommand("copy");
+          } catch (_) {}
+          x.remove();
+        }
+        toast("Address copied");
+      };
+    </script>
+  </body>
+</html>
